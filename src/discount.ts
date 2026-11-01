@@ -8,3 +8,4 @@ export function calcClientDiscount(
 ): number {
   throw new Error('INVALID_EXPERIENCE');
 }
+
