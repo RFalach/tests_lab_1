@@ -6,6 +6,8 @@ export function calcClientDiscount(
   years: number,
   options: DiscountOptions = {},
 ): number {
-  throw new Error('INVALID_EXPERIENCE');
+  if (years < 0) {
+    throw new Error('INVALID_EXPERIENCE');
+  }
+  return 0;
 }
-
