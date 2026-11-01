@@ -11,6 +11,8 @@ const MIN_YEARS = 1;
 const MID_YEARS = 3;
 const SENIOR_YEARS = 5;
 
+const BIRTHDAY_MULTIPLIER = 2;
+
 function assertValidExperience(years: number): void {
   if (years < 0) {
     throw new Error('INVALID_EXPERIENCE');
@@ -29,6 +31,8 @@ export function calcClientDiscount(
   options: DiscountOptions = {},
 ): number {
   assertValidExperience(years);
-  return getRate(years);
+  let rate = getRate(years);
+  if (options.birthday) rate *= BIRTHDAY_MULTIPLIER;
+  return rate;
 }
 
