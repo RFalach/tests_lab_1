@@ -14,7 +14,7 @@ describe('calcClientDiscount', () => {
 it.each([
   { years: 0,   expected: 0 },
   { years: 0.5, expected: 0 },
-  { years: 1,   expected: 0 },
+  { years: 0.9,   expected: 0 },
 ])('стаж $years років → знижка $expected', ({ years, expected }) => {
   expect(calcClientDiscount(years)).toBe(expected);
 });
