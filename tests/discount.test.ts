@@ -42,3 +42,16 @@ it.each([
 ])('стаж $years років → $expected', ({ years, expected }) => {
   expect(calcClientDiscount(years)).toBe(expected);
 });
+
+it.each([
+  { years: 0,  opts: { birthday: true }, expected: 0 },
+  { years: 1,  opts: { birthday: true }, expected: 0.10 },
+  { years: 4,  opts: { birthday: true }, expected: 0.20 },
+  { years: 10, opts: { birthday: true }, expected: 0.30 },
+])(
+  'стаж $years, день народження → $expected',
+  ({ years, opts, expected }) => {
+    expect(calcClientDiscount(years, opts)).toBe(expected);
+  },
+);
+
